@@ -18,7 +18,7 @@ class SingUp extends React.Component {
         
     render () {
         return <div className="signup">
-            <h1>Please enter username:</h1>
+            <h1>Please enter the noma:</h1>
             <input type="text" onKeyDown={this.handleChange}/>
         </div>
     }
