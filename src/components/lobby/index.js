@@ -22,12 +22,21 @@ class Lobby extends React.Component {
     }
 
     render () {
-        return <div className="lobby">
-            <h1>Lobby List:</h1>
+        return <div className="container mt-3">
+            <div> <h1>Lobby List:</h1> </div>
+            <div className="border border-dark">
             {this.state.lobby.map(x => {
-                return <h1 key={x.name} onClick={e => this.addPlayer(x.name)}>{x.name}</h1>
+                return <div key={x.name} className="p-3 px-3 ml-3 mr-3">
+                    <div className="border border-dark row item" onClick={e => this.addPlayer(x.name)}>
+                        <div className="col-6"><h2>{x.name}</h2></div>
+                        <div className="col-6"><span className="float-right"><h2>PLAYERS {x.size}/4</h2></span></div>
+                    </div>
+                </div>
             })}
-            <button onClick={this.createLobby}>Create Lobby</button>
+            </div>
+            <div className="text-center mt-3">
+                <button onClick={this.createLobby}>Create Lobby</button>
+            </div>
         </div>
     }
 

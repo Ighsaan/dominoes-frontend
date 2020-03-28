@@ -17,9 +17,13 @@ class SingUp extends React.Component {
     }
         
     render () {
-        return <div className="signup">
-            <h1>Please enter username:</h1>
-            <input type="text" onKeyDown={this.handleChange}/>
+        return <div className="container">
+            <div className="text-center">
+                <img  className="logo img-fluid" src="./logo.png" alt="logo"/>
+                <hr/>
+                <label className="font-weight-bold mt-5" htmlFor="username">ENTER A USERNAME</label>
+                <input type="text" id="username" className="form-control" onKeyDown={this.handleChange} placeholder="Yaatie" />
+            </div>
         </div>
     }
 }

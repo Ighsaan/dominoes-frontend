@@ -1,5 +1,4 @@
-.lobby {
-    text-align: center;
-    position: absolute;
-    width: 100%;
+.item:hover {
+    cursor: pointer;
+    background-color: skyblue;
 }

@@ -59,7 +59,6 @@ export default class Domino extends React.Component {
         }
         let imageName = "./faces/"+name+".svg"
         return <div className={className} onClick={this.onClick}>
-            {!this.props.blunk && !this.props.board ? <p>{this.props.right}|{this.props.left}</p>: ""}
             <img alt={name} src={imageName} />
         </div>
     }
