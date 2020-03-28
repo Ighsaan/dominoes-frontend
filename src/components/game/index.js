@@ -17,6 +17,7 @@ class Game extends React.Component {
           right: -1
         }
         this.playCard = this.playCard.bind(this);
+        this.passTurn = this.passTurn.bind(this);
         this.selectSide = this.selectSide.bind(this);
     }
 
@@ -60,23 +61,27 @@ class Game extends React.Component {
       }
     }
 
+    passTurn() {
+      this.props.client.passTurn( this.props.data.id )
+    }
+
     selectSide(side) {
       this.playCard(this.currentCard.left, this.currentCard.right, side);
     }
 
     render  () {
+        let afterInit = false;
         return (
           <div className="App">
               {/* Make Component for laaken */}
             <div className="Laaken">
               {this.state.data.board.state.map((card, i) => {
                 let select = this.state.select && (i === 0 || i === this.state.data.board.state.length-1);
-                let side = "";
-                if(i === 0) {
-                  side = "LEFT"
-                } else if(i === this.state.data.board.state.length){
+                let side = "LEFT";
+                if(afterInit) {
                   side = "RIGHT"
-                }
+                } 
+                afterInit = afterInit ? afterInit : card.initialCard
                 return <Domino 
                   key={card.card.left+ " " + card.card.right} 
                   select={select} 
@@ -84,11 +89,12 @@ class Game extends React.Component {
                   selectSide = {this.selectSide}
                   board={true}
                   left={card.card.left} 
-                  right={card.card.right}/>
+                  right={card.card.right}
+                  face={card.face}/>
               })}
             </div>
       
-            <Player playerData={this.state.data.players[0]} playCard={this.playCard}/>
+            <Player playerData={this.state.data.players[0]} passTurn={this.passTurn} playCard={this.playCard}/>
             <Other playerData={this.state.data.players[1]} side="Right"/>
             <Other playerData={this.state.data.players[2]} side="Upper"/> 
             <Other playerData={this.state.data.players[3]} side="Left"/>

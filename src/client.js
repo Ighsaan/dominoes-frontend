@@ -29,6 +29,10 @@ export default class DominoesClient {
         this._getSocket().emit("playCard", { roomId, card, side });
     }
 
+    passTurn(gameId) {
+        this._getSocket().emit("passTurn", gameId);
+    }
+
     _getSocket() {
         if(!this.socket) {
             this.socket = socketIOClient(this.host);

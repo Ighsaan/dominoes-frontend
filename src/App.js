@@ -6,6 +6,7 @@ import Game from "./components/game"
 import SignUp from "./components/signup"
 import Lobby from "./components/lobby"
 import Room from "./components/room"
+import Post from "./components/post"
 
 //import mockState from './state'
 
@@ -35,9 +36,7 @@ class App extends React.Component {
   }
 
   updateGameState(gameState) {
-      console.log(gameState);
       this.setState({ gameState });
-      console.log("-------------------------------");
   }
 
   canStart(start) {
@@ -64,7 +63,8 @@ class App extends React.Component {
         case "PLAYING": return <Game data={this.state.gameState} client={this.client}/>;
         case "SIGNUP" : return <SignUp setUsername={this.setUsername}/>
         case "LOBBY" : return <Lobby client={this.client} session={this.state.session}/>
-        case "WAITING" : return <Room  client={this.client}canStart={this.state.canStart} gameState={this.state.gameState}/>
+        case "WAITING" : return <Room client={this.client} canStart={this.state.canStart} gameState={this.state.gameState}/>
+        case "END" : return <Post data={this.state.gameState}/>
         default: return "Error"
       }
     }

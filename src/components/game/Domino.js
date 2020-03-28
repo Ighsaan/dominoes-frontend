@@ -23,6 +23,29 @@ export default class Domino extends React.Component {
         let className = "Verticle";
         if((this.props.board && !isDouble) || (!this.props.board && isSide)){
             className = "Horizontal"
+            if(this.props.board && this.props.face === this.props.left) {
+                let direction = "";
+                if(this.props.side === "RIGHT"){
+                    direction = "Rightway";
+                }
+                if(this.props.side === "LEFT"){
+                    direction = "Leftway";
+                }
+
+                className = className + " " + direction
+            }
+            if(this.props.board && this.props.face === this.props.right) {
+                let direction = "";
+                
+                if(this.props.side === "RIGHT"){
+                    direction = "Leftway";
+                }
+                if(this.props.side === "LEFT"){
+                    direction = "Rightway";
+                }
+
+                className = className + " " + direction
+            }
         }
 
         let name = isSide ? "blunk90" : "blunk"

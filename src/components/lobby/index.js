@@ -13,7 +13,6 @@ class Lobby extends React.Component {
     }
 
     componentDidMount() {
-        console.log(this.props.session);
         axios.get(this.props.session.hostname+"/lobby")
           .then(res => {
             this.setState({

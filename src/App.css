@@ -84,7 +84,14 @@
 .Laaken .Horizontal img {
   height: 52px;
   width: 52px;
+}
+
+.Rightway {
   transform: rotate(90deg);;
+}
+
+.Leftway {
+  transform: rotate(-90deg);;
 }
 
 .Laaken .Verticle img {
