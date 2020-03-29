@@ -23,7 +23,7 @@ class App extends React.Component {
       }, 
       session: {
         username: "",
-        hostname: "http://127.0.0.1:4001",
+        hostname: "",
         roomId: ""
       }
     };

@@ -5,6 +5,7 @@ export default class Player extends React.Component {
 
     render() {
         return <div className="Hand">
+            <p>{this.props.playerData.name}</p>
             {
                 this.props.playerData.cards.map(card => {
                     return <Domino key={card.left +""+ card.right} playCard={this.props.playCard} left={card.left} right={card.right}/>

@@ -28,7 +28,8 @@
 }
 
 .Hand img:hover{
-  box-shadow: 0px 0px 5px #fff;
+  box-shadow: 0px 0px 5px rgb(166, 249, 255);
+  cursor: pointer;
 }
 
 .Upper div {
